@@ -1,0 +1,79 @@
+<div>
+    <app-navigation></app-navigation>
+    <div class="main-content">
+    <h3> Record Details</h3>
+    <div class="dashboard-actions">
+        <button class="btn btn-primary" style="margin-right:16px" (click)="home()">Home</button> 
+        <button class="btn btn-info" style="margin-right:16px" (click)="addTransaction(this.record.id)">Add Transaction</button> 
+        <button class="btn btn-info" style="margin-right:16px" (click)="changePassword()">Change Password</button>
+        <button class="btn btn-danger" style="margin-right:16px" (click)="logout()">Logout</button>
+    </div>
+    <br/>
+    <div class="details-container">
+        <div class="details-section">
+        <label><b>Record ID:</b></label>
+        {{record.id}}
+        </div>
+        <div class="details-section">
+        <label><b>Borrower ID:</b></label>
+        {{borrowerId}}
+        </div>
+        <div class="details-section">
+        <label><b>Borrower Name:</b></label>
+        {{record.borrowerName}}
+        </div>
+        <div class="details-section">
+        <label><b>Principal Amount:</b></label>
+        {{record.principleAmount}}
+        </div>
+        <div class="details-section">
+        <label><b>Rate of Interest(%):</b></label>
+        {{record.roi}}
+        </div>
+        <div class="details-section">
+        <label><b>Purchase Date:</b></label>
+        {{record.purchaseDate}}
+        </div>
+        <div class="details-section">
+        <label><b>Due Date:</b></label>
+        {{record.dueDate}}
+        </div>
+        <div class="details-section">
+        <label><b>Status:</b></label>
+        {{record.status}}
+        </div>
+    </div>
+    
+    <br/>
+    <h2> Transaction Details</h2>
+    <!-- Record Table -->
+    <table class="record-table">
+        <thead>
+        <tr>
+            <th>Transaction ID</th>
+            <th>Record ID</th>
+            <th>Due Date</th>
+            <th>Description</th>
+            <th>Withdraw Amount</th>
+            <th>Deposit Amount</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactions">
+                <td>{{ transaction.id }}</td>
+                <td>{{ transaction.recordId }}</td>
+                <td>{{ transaction.dueDate | date:'shortDate' }}</td>
+                <td>{{ transaction.description }}%</td>
+                <td>{{ transaction.withdrawAmount | currency:'USD':'symbol':'1.2-2' }}</td>
+                <td>{{ transaction.depositAmount | currency:'USD':'symbol':'1.2-2' }}</td>
+                <td>
+                    <button (click) = "updateTransaction(transaction.id)" class = "btn btn-info"> Update</button>
+                    <button (click) = "deleteTransaction(transaction.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                    <button (click) = "transactionDetails(transaction.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>

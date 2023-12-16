@@ -1,0 +1,52 @@
+<div>
+    <app-navigation></app-navigation>
+    <div class="main-content">
+        <div class="dashboard">
+            <div class="card">
+                <h3>Total Amount</h3>
+                <p>{{ totalAmount | currency:'USD':'symbol':'1.2-2' }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Principal</h3>
+                <p>{{ totalPrincipal | currency:'USD':'symbol':'1.2-2' }}</p>
+            </div>
+
+            <div class="card">
+                <h3>Total Interest</h3>
+                <p>{{ totalInterest | currency:'USD':'symbol':'1.2-2' }}</p>
+            </div>
+        </div>
+        <br/>
+        <h2> Borrowers List</h2>
+        <table class="table table-striped">
+            <div class="dashboard-actions">
+                <button class="btn btn-info" style="margin-right:16px" (click)="addBorrower()">Add Borrower</button> 
+                <button class="btn btn-secondary" style="margin-right:16px" (click)="changePassword()">Change Password</button>
+                <button class="btn btn-danger" style="margin-right:16px" (click)="logout()">Logout</button>
+            </div><br/>
+            <table class = "table table-striped">
+                <thead>
+                    <tr>
+                        <th> Borrower</th>
+                        <th> Phone</th>
+                        <th> Email</th>
+                        <th> Actions </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let borrower of borrowers" >
+                        <td> {{ borrower.name }} </td>
+                        <td> {{ borrower.phone }} </td>
+                        <td> {{ borrower.email }} </td>
+                        <td>
+                            <button (click) = "updateBorrower(borrower.id)" class = "btn btn-info"> Update</button>
+                            <button (click) = "deleteBorrower(borrower.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                            <button (click) = "borrowerDetails(borrower.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </table>
+    </div>
+</div>

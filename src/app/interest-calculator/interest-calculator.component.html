@@ -1,0 +1,38 @@
+<div>
+    <app-navigation></app-navigation>
+    <div class="main-content">
+        <h2> Interest Calculator</h2>
+        <div class="container">
+            <h2>Simple Interest Calculator</h2>
+            <form [formGroup]="interestForm!">
+              <div class="form-group">
+                <label for="principleAmount">Principal Amount:</label>
+                <input type="number" formControlName="principleAmount" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="rateOfInterest">Rate of Interest (%):</label>
+                <input type="number" formControlName="rateOfInterest" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="duration">Duration:</label>
+                <input type="number" formControlName="duration" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="timePeriod">Time Period:</label>
+                <select formControlName="timePeriod" class="form-control">
+                  <option value="year">Year</option>
+                  <option value="month">Month</option>
+                </select>
+              </div>
+              <button type="button" (click)="calculateInterest()" class="btn btn-primary">Calculate</button>
+            </form>
+          
+            <div *ngIf="interestEarned !== undefined" class="result">
+              <h3>Results:</h3>
+              <p>Interest Earned: {{ interestEarned | number: '1.2-2' }}</p>
+              <p>Principal Amount: {{ interestForm.get('principleAmount')?.value | number: '1.2-2' }}</p>
+              <p>Total Value: {{ (interestForm.get('principleAmount')?.value + interestEarned) | number: '1.2-2' }}</p>
+            </div>
+          </div>
+    </div>
+</div>

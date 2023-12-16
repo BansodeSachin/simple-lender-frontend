@@ -1,0 +1,17 @@
+/* dashboard.component.css */
+.dashboard-container {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  .dashboard-actions {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  /* Add padding to the content to avoid hiding behind the navigation */
+.main-content {
+  margin-left: 200px;
+  padding: 20px;
+}

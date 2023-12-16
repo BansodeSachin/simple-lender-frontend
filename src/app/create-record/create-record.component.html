@@ -1,0 +1,49 @@
+<div class="dashboard-actions">
+    <button class="btn btn-primary" style="margin-right:16px" (click)="home()">Home</button> 
+    <button class="btn btn-info" style="margin-right:16px" (click)="changePassword()">Change Password</button>
+    <button class="btn btn-danger" style="margin-right:16px" (click)="logout()">Logout</button>
+  </div>
+<div class="col-md-6 offset-md-3">
+    <h3> Create Record </h3>
+    <form (ngSubmit) = "onSubmit()">
+
+        <div class="form-group">
+            <label> Borrower Name</label>
+            <input type="text" class ="form-control" id = "name"
+                [(ngModel)] = "record.borrowerName" name = "name">
+        </div>
+    
+        <div class="form-group">
+            <label> Principle Amount</label>
+            <input type="text" class ="form-control" id = "email"
+                [(ngModel)] = "record.principleAmount" name = "email">
+        </div>
+
+        <div class="form-group">
+            <label> Rate of Interest(%)</label>
+            <input type="text" class ="form-control" id = "phone"
+                [(ngModel)] = "record.roi" name = "phone">
+        </div>
+
+        <div class="form-group">
+            <label> Purchase Date</label>
+            <input type="text" class ="form-control" id = "city"
+                [(ngModel)] = "record.purchaseDate" name = "city">
+        </div>
+
+        <div class="form-group">
+            <label> Due Date</label>
+            <input type="text" class ="form-control" id = "state"
+                [(ngModel)] = "record.dueDate" name = "state">
+        </div>
+
+        <div class="form-group">
+            <label> Statue</label>
+            <input type="text" class ="form-control" id = "country"
+                [(ngModel)] = "record.status" name = "country">
+        </div>
+    
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 

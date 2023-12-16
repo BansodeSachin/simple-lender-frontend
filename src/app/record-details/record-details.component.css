@@ -1,0 +1,40 @@
+/* dashboard.component.css */
+.dashboard-container {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  .dashboard-actions {
+    text-align: right;
+    margin-top: 20px;
+  }
+
+  .details-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .details-section {
+    width: 25%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .record-table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .record-table th, .record-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+   /* Add padding to the content to avoid hiding behind the navigation */
+.main-content {
+    margin-left: 200px;
+    padding: 20px;
+  }

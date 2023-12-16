@@ -1,0 +1,81 @@
+<div>
+    <app-navigation></app-navigation>
+    <div class="main-content">
+    <h3> Borrower Details</h3>
+    <div class="dashboard-actions">
+        <button class="btn btn-primary" style="margin-right:16px" (click)="home()">Home</button> 
+        <button class="btn btn-info" style="margin-right:16px" (click)="addRecord(this.borrower.id)">Add Record</button> 
+        <button class="btn btn-info" style="margin-right:16px" (click)="changePassword()">Change Password</button>
+        <button class="btn btn-danger" style="margin-right:16px" (click)="logout()">Logout</button>
+    </div>
+    <br/>
+    <div class="details-container">
+        <div class="details-section">
+        <label><b>Borrower Name:</b></label>
+        {{borrower.name}}
+        </div>
+        <div class="details-section">
+        <label><b>Email:</b></label>
+        {{borrower.email}}
+        </div>
+        <div class="details-section">
+        <label><b>Phone:</b></label>
+        {{borrower.phone}}
+        </div>
+        <div class="details-section">
+        <label><b>City:</b></label>
+        {{borrower.city}}
+        </div>
+        <div class="details-section">
+        <label><b>State:</b></label>
+        {{borrower.state}}
+        </div>
+        <div class="details-section">
+        <label><b>Country:</b></label>
+        {{borrower.country}}
+        </div>
+        <div class="details-section">
+        <label><b>Pin Code:</b></label>
+        {{borrower.pincode}}
+        </div>
+        <div class="details-section">
+        <label><b>Address:</b></label>
+        {{borrower.address}}
+        </div>
+    </div>
+    
+    <br/>
+    <h2> Record Details</h2>
+    <!-- Record Table -->
+    <table class="record-table">
+        <thead>
+        <tr>
+            <th>Borrower</th>
+            <th>Principal Amount</th>
+            <th>Interest Amount</th>
+            <th>ROI (%)</th>
+            <th>Purchase Date</th>
+            <th>Status</th>
+            <th>Total Amount</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of records">
+                <td>{{ record.borrowerName }}</td>
+                <td>{{ record.principleAmount | currency:'USD':'symbol':'1.2-2' }}</td>
+                <td>{{ record.interestAmount | currency:'USD':'symbol':'1.2-2' }}</td>
+                <td>{{ record.roi }}%</td>
+                <td>{{ record.purchaseDate | date:'shortDate' }}</td>
+                <td>{{ record.status }}</td>
+                <td>{{ record.totalAmount | currency:'USD':'symbol':'1.2-2' }}</td>
+                <td>
+                    <button (click) = "updateRecord(record.id)" class = "btn btn-info"> Update</button>
+                    <button (click) = "deleteRecord(record.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                    <button (click) = "recordDetails(this.borrower.id, record.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
